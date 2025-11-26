@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -15,6 +16,10 @@ export class App {
   public notas: number[] = [1,2,3,4,5,6,7,8,9,10];
   public edades: number[] = [19,23,14,24,56,35,28,45,14,49,54,75,33,43,13,24,35,34,54,23]
   public colores: string[] = ['verde', 'amarillo', 'rojo', 'blanco', 'negro'];
+  public Frutas: string[] = ['Aguacate', 'Banana', 'Chirimoya','Dátil', 'Fresa', 'Guayaba', 'Kiwi', 'Limón', 'Naranja', 'Pera', 'Sandía', 'Uva', 'Yuca'];
+  public fruta: string = "";
+  public matriz1: number[][] = this.inicializaMatriz();
+  public matriz2: number[][] = this.inicializaMatriz();
 
   public filtra_playas_pares(): string[]{
     return this.playas.filter((data, idx) => idx %2 == 0);  
@@ -36,5 +41,30 @@ export class App {
 
   public elimina_color(color: string): string[]{
     return this.colores.filter(data => data !== color);
+  }
+
+  public addFruit(): void{
+    let encontrado = 0;
+    for(let i = 0; i < this.Frutas.length; i++) {
+      if (this.fruta < this.Frutas[i]) {
+        encontrado = i;
+        break;
+      } 
+    }
+    
+    this.Frutas.splice(encontrado, 0, this.fruta);
+  }
+
+  public inicializaMatriz(){
+    let result: number[][] = [];
+    for (let i = 0; i < 3; i++) {
+      let fila: number[] = [];
+      for (let j = 0; j < 3; j++) {
+        fila.push(0);
+      }
+      result.push(fila);
+   }
+   console.log(result);
+    return result;
   }
 }

@@ -21,10 +21,14 @@
     gap: 20px;
   }
 
+  .main h1{
+    text-decoration: underline;
+  }
+
   .Ejercicio {
     background-color: #fff3b0;
     list-style-type: none;
-    padding-left: 15px;
+    padding: 30px;
     width: 100%;
     max-width: 1000px;
     margin-bottom: 30px;
@@ -76,4 +80,34 @@
       </ul>
     </div>
 
+    <div class="Ejercicio">
+      <h1>Ejercicio 5</h1>
+      <p>Supon un array ordenado alfabéticamente de frutas. (Aguacate, Banana, Chirimoya,
+      Dátil, Fresa, Guayaba, Kiwi, Limón, Naranja, Pera, Sandía, Uva, Yuca). Introduce el
+      melón de forma que el orden se mantenga usando splice.</p>
+
+      <label for="fruta"></label>
+      <input [(ngModel)]="fruta" id="fruta" type="text">
+      <button (click)="addFruit()">Insertar fruta</button>
+      <ul *ngFor="let fruta of Frutas">
+        <li>{{ fruta }}</li>
+      </ul>
+    </div>
+
+    <div class="Ejercicio">
+      <h1>Ejercicio 6</h1>
+      <p>Crea un array multidimensional que represente las butacas de un teatro con 10 filas
+      y 15 columnas. Realiza un algoritmo que de forma aleatoria ocupe (1) cinco asientos
+      dejando el resto de butacas sin ocupar (0). Finalmente muestra las butacas
+      ocupadas. Si el algoritmo coincide en ocupar una butaca que ya anteriormente
+      estaba ocupada realiza otro intento.</p>
+      
+    </div>
+
+    <div class="Ejercicio">
+      <h1>Ejercicio 7</h1>
+      <p>Implemente una calculadora de matrices que dada dos matrices del mismo tamaño
+      devuelva una tercera matriz con el resultado de la suma.</p>
+      <button (click)="inicializaMatriz()">matriz</button>
+    </div>
 </main>
