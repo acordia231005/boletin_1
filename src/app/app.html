@@ -9,6 +9,30 @@
     font-family: 'Times New Roman', Times, serif;
   }
 
+  h2{
+    text-decoration: underline;
+  }
+
+  .indice{
+    background-color: #fff3b0;
+    padding: 10px 35px 10px 15px;
+  }
+
+  .indice ol li{
+    margin-top: 5px;
+  }
+
+  a{
+    text-decoration: none;
+    color: black;
+    padding: 3px;
+  }
+
+  a:hover{
+    background-color: #a0c4ff;
+    color: #fff3b0;
+  }
+
   main {
     margin-top: 0;
     background-color: #a0c4ff;
@@ -36,78 +60,239 @@
 
   .Ejercicio h1 {
     text-align: center;
-    margin-top: 2rem;
+    margin-top: 1,5rem;
   }
 
   .Ejercicio p {
     margin-top: 1rem;
   }
+
+  footer{
+    width:89%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    border: 4px solid black;
+    background-color: #fff3b0;
+    border-bottom: 0;
+  }
 </style>
 
     <!--  HTML  -->
-<main class="main">
+<main class="main" id="indice">
     <h1>{{title()}}</h1>
-    <div class="Ejercicio">
+
+  <div class="indice">
+    <ol type="1">
+      <li><a href="#Ejercicio1">Ejercicio 1</a></li>
+      <li><a href="#Ejercicio2">Ejercicio 2</a></li>
+      <li><a href="#Ejercicio3">Ejercicio 3</a></li>
+      <li><a href="#Ejercicio4">Ejercicio 4</a></li>
+      <li><a href="#Ejercicio5">Ejercicio 5</a></li>
+      <li><a href="#Ejercicio6">Ejercicio 6</a></li>
+      <li><a href="#Ejercicio7">Ejercicio 7</a></li>
+      <li><a href="#Ejercicio8">Ejercicio 8</a></li>
+      <li><a href="#Ejercicio9">Ejercicio 9</a></li>
+      <li><a href="#Ejercicio10">Ejercicio 10</a></li>
+      <li><a href="#Ejercicio11">Ejercicio 11</a></li>
+      <li><a href="#Ejercicio12">Ejercicio 12</a></li>
+      <li><a href="#Ejercicio13">Ejercicio 13</a></li>
+      <li><a href="#Ejercicio14">Ejercicio 14</a></li>
+      <li><a href="#Ejercicio15">Ejercicio 15</a></li>
+      <li><a href="#Ejercicio16">Ejercicio 16</a></li>
+      <li><a href="#Ejercicio17">Ejercicio 17</a></li>
+    </ol>
+  </div>
+
+    <div class="Ejercicio" id="Ejercicio1">
       <h1>Ejercicio 1</h1>
       <p>Realiza un array llamado playas donde almacenes las cinco playas favoritas que
       tengas. Recorra ahora dicho array mostrando las playas que ocupan posición par.</p>
-      <ul *ngFor="let playa of filtra_playas_pares()">
-        <li>{{ playa }}</li>
+      <h2>Solución:</h2>
+      <ul>
+        @for (playa of filtra_playas_pares(); track $index) {
+          <li>{{ playa }}</li>
+        }
       </ul>
     </div>
 
-    <div class="Ejercicio">
+    <div class="Ejercicio" id="Ejercicio2">
       <h1>Ejercicio 2</h1>
       <p>Realiza un array que almacene las notas de diez alumnos de clase. Pinta la menor y
         la mayor de todas.</p>
+      <h2>Solución:</h2>
       <p>La nota mayor es: {{ Obten_nota_max() }}</p>
       <p>La nota minima es: {{ Obten_nota_min() }}</p>
     </div>
 
-    <div class="Ejercicio">
+    <div class="Ejercicio" id="Ejercicio3">
       <h1>Ejercicio 3</h1>
       <p>Realiza un array que almacene las edades de todos los compañeros de clase. Pinta
       la media ignorando a los que son menores de 18 y mayores de 50.</p>
+      <h2>Solución:</h2>
       <p>La media de edad de la clase es: {{ Calculo_media_edad() }}</p>
     </div>
 
-    <div class="Ejercicio">
+    <div class="Ejercicio" id="Ejercicio4">
       <h1>Ejercicio 4</h1>
       <p>Eliminar el color verde de un array que almacena cinco colores cualesquiera, 
       entre ellos debe estar el verde</p>
-      <ul *ngFor="let color of elimina_color('verde')">
-        <li>{{ color }}</li>
+      <h2>Solución:</h2>
+      <ul>
+        @for (color of elimina_color('verde'); track $index) {
+          <li>{{ color }}</li>
+        }
       </ul>
     </div>
 
-    <div class="Ejercicio">
+    <div class="Ejercicio" id="Ejercicio5">
       <h1>Ejercicio 5</h1>
       <p>Supon un array ordenado alfabéticamente de frutas. (Aguacate, Banana, Chirimoya,
       Dátil, Fresa, Guayaba, Kiwi, Limón, Naranja, Pera, Sandía, Uva, Yuca). Introduce el
       melón de forma que el orden se mantenga usando splice.</p>
-
+      <h2>Solución:</h2>
       <label for="fruta"></label>
       <input [(ngModel)]="fruta" id="fruta" type="text">
       <button (click)="addFruit()">Insertar fruta</button>
-      <ul *ngFor="let fruta of Frutas">
-        <li>{{ fruta }}</li>
+      <ul>
+        @for (fruta of Frutas; track $index) {
+          <li>{{ fruta }}</li>
+        }
       </ul>
     </div>
 
-    <div class="Ejercicio">
+    <div class="Ejercicio" id="Ejercicio6">
       <h1>Ejercicio 6</h1>
       <p>Crea un array multidimensional que represente las butacas de un teatro con 10 filas
       y 15 columnas. Realiza un algoritmo que de forma aleatoria ocupe (1) cinco asientos
       dejando el resto de butacas sin ocupar (0). Finalmente muestra las butacas
       ocupadas. Si el algoritmo coincide en ocupar una butaca que ya anteriormente
       estaba ocupada realiza otro intento.</p>
-      
+      <h2>Solución:</h2>
     </div>
 
-    <div class="Ejercicio">
+    <div class="Ejercicio" id="Ejercicio7">
       <h1>Ejercicio 7</h1>
       <p>Implemente una calculadora de matrices que dada dos matrices del mismo tamaño
       devuelva una tercera matriz con el resultado de la suma.</p>
-      <button (click)="inicializaMatriz()">matriz</button>
+      <h2>Solución:</h2>
     </div>
+
+    <div class="Ejercicio" id="Ejercicio8">
+      <h1>Ejercicio 8</h1>
+      <p>Para dotar a la calculadora de matrices de más funcionalidad cree ahora una función
+      que permita calcular la traspuesta de una matriz. Recuerda que la traspuesta de una
+      matriz es el resultado de permutar filas por columnas.</p>
+      <h2>Solución:</h2>
+      <button></button>
+    </div>
+
+    <div class="Ejercicio" id="Ejercicio9">
+      <h1>Ejercicio 9</h1>
+      <p>Cree una matriz de 3x3, rellénala con números enteros y muestra en pantalla
+      aquellos elementos que forman parte de la diagonal principal.</p>
+      <h2>Solución:</h2>
+      <button></button>
+    </div>
+
+    <div class="Ejercicio" id="Ejercicio10">
+      <h1>Ejercicio 10</h1>
+      <p>Crea un array que almacena un listado de 15 precios distintos:</p>
+      <ul>
+        <li>Calcula de forma aleatoria los 15 precios entre 0 y 100 euros.</li>
+        <li>Posteriormente elimine los 5 últimos precios.</li>
+        <li>Añada ahora 5 nuevos precios, esta vez de forma manual</li>
+        <li>Realiza una función que dado un precio indique si se encuentra dentro delarray</li>
+      </ul>
+      <h2>Solución:</h2>
+      <button></button>
+    </div>
+
+   
+    <div class="Ejercicio" id="Ejercicio11">
+      <h1>Ejercicio 11</h1>
+      <p> Crea un conjunto que almacene los 7 días de la semana y muéstranos por pantalla.</p>
+      
+      <h2>Solución:</h2>
+      {{ unir_conjuntos() }}
+      <ul>
+        @for (dia of diasSemana; track $index) {
+          <li>{{ dia }}</li>
+        }
+      </ul>
+    </div>
+
+    <div class="Ejercicio" id="Ejercicio12">
+      <h1>Ejercicio 12</h1>
+      <p>Crea un conjunto vacío y empieza a añadir uno a uno los nombres de tus
+      compañeros. Elimina ahora uno que se encuentre en una posición central. Busque
+      sobre ese conjunto alumnos que estén y que no estén dentro del conjunto. Indica el
+      tamaño del conjunto al terminar</p>
+      <h2>Solución:</h2>
+      {{ operar_conjunto(1) }}
+      {{ operar_conjunto(2) }}
+      {{ operar_conjunto(3) }}
+      {{ operar_conjunto(4) }}
+    </div>
+
+    <div class="Ejercicio" id="Ejercicio13">
+      <h1>Ejercicio 13</h1>
+      <p>Crea un array con elementos duplicados y desarrolla una función que se llame
+      eliminaDuplicados() que realiza la función correspondiente para eliminar aquellos
+      elementos que se encuentren más de una vez dentro del array.</p>
+      <h2>Solución:</h2>
+      <ul>
+        @for (elemento of elimina_duplicados(); track $index) {
+          <li>{{ elemento }}</li>
+        }
+      </ul>
+    </div>
+
+    <div class="Ejercicio" id="Ejercicio14">
+      <h1>Ejercicio 14</h1>
+      <p>Crea un array con los números del 1 al 10, otro con los números del 5 al 15 y por
+      último otro con los números del 10 al 20. Realiza una unión de todos los arrays en
+      un conjunto y muestra su resultado. ¿Qué ha ocurrido?</p>
+      <h2>Solución:</h2>
+     
+    </div>
+
+    <div class="Ejercicio" id="Ejercicio15">
+      <h1>Ejercicio 15</h1>
+      <p>Inventa un listín telefónico de 10 personas de modo que no quieras memorizar sus
+      teléfonos, solo sus nombres y puedas en cualquier momento consultar el número de
+      teléfono de cada uno de ellos. Pinta el listín telefónico completo y el teléfono de una
+      persona en concreto. ¿Qué ocurre si consultas el teléfono de una persona que no se
+      encuentra dentro del listín? ¿Puede tener el mismo número de teléfono una
+      persona? ¿Puede una persona tener más de un teléfono?</p>
+      <h2>Solución:</h2>
+      @for (x of listin_telefonico(); track $index) {
+        <p>{{ x }}</p>
+      }
+      <br>
+      Valor de Juan: {{ listin_telefonico().get('Juan') }}
+    </div>
+
+    <div class="Ejercicio" id="Ejercicio16">
+      <h1>Ejercicio 16</h1>
+      <p>Crea un mapa que almacene las direcciones IP de cada una de las páginas que más
+      frecuentes. Posteriormente modifica la dirección IP de una de ellas.</p>
+      <h2>Solución:</h2>
+     
+    </div>
+
+    <div class="Ejercicio" id="Ejercicio17">
+      <h1>Ejercicio 17</h1>
+      <p>Realiza una función que dada una dirección URL para el ejercicio anterior, dada una
+      URL indique si el elemento se encuentra o no dentro del mapa.</p>
+      <h2>Solución:</h2>
+     
+    </div>
+
+    <footer>
+      <a href="#indice">Volver al indice</a>
+    </footer>
+    
 </main>
